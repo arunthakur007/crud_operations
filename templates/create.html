@@ -1,22 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<main role="main">
-    <section class="jumbotron text-center">
-        <div class="container">
-        <h1 class="jumbotron-heading">{{ title }}</h1>
-        <p class="lead text-muted">
-            {{ paragraph }}
-        </p>
-        <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-        </p>
-        </div>
-    </section>
+<main role="main" xmlns="http://www.w3.org/1999/html">
+<!--    <section class="jumbotron text-center">-->
+<!--        <div class="container">-->
+<!--        <h1 class="jumbotron-heading">{{ title }}</h1>-->
+<!--        <p class="lead text-muted">-->
+<!--            {{ paragraph }}-->
+<!--        </p>-->
+<!--        </div>-->
+<!--    </section>-->
 
-    <div class="album py-5 bg-light">
+    <div class="album bg-light">
         <div class="container">
-
+ <h1 class="text-center">{{ title }}</h1>
         <div class="row">
         
                 </div>
@@ -34,23 +30,28 @@
     {% csrf_token %}
     <!-- Name input -->
     <div class="mb-3">
-      <label class="form-label" for="name">Name</label>
-      <input class="form-control" name="name" value="{{ obj.name }}" id="name" type="text" placeholder="Name" data-sb-validations="required" />
+      <label class="form-label" for="fullname">fullName</label>
+      <input class="form-control" name="fullname" value="{{ obj.fullname }}" id="fullname" type="text" placeholder="fullName" data-sb-validations="required" />
       <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
     </div>
 
     <!-- Email address input -->
     <div class="mb-3">
-      <label class="form-label" for="emailAddress">Email Address</label>
-      <input class="form-control"  name="email"  value="{{ obj.email }}" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required, email" value="{{ obj.email }}" />
-      <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-      <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+      <label class="form-label" for="phone">phones</label>
+      <input class="form-control"  name="phone"  value="{{ obj.phone}}" id="phone" type="phone" placeholder="phone" data-sb-validations="required, phone" value="{{ obj.phone}}" />
+
     </div>
 
     <!-- Message input -->
     <div class="mb-3">
-      <label class="form-label" for="message">Message</label>
-      <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required" name="message">{{ obj.message }}</textarea>
+      <label class="form-label" for="message">zipcode</label>
+      <input class="form-control" id="message" type="text" placeholder="zipcode"  data-sb-validations="required" name="zipcode" value= "{{ obj.zipcode}}" />
+      <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
+    </div>
+
+     <div class="mb-3">
+      <label class="form-label" for="message">address</label>
+     <textarea class="form-control" id="address" type="text" placeholder="address"  data-sb-validations="required" name="address">{{ obj.address }}</textarea>
       <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
     </div>
 
@@ -68,6 +69,7 @@
     <!-- Form submit button -->
     <div class="d-grid">
       <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+
     </div>
 
   </form>
